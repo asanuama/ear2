@@ -1,0 +1,43 @@
+<h1>マイページ</h1>
+
+<%if current_user.is_designer? == false%>
+ viewer
+<% else %>
+ designer
+<% end %>
+
+
+
+<%= attachment_image_tag current_user, :image, :fill, 10, 10, fallback: "no_image.jpg"%>
+
+<table class = "table">
+  <tbody>
+    <tr>
+      <th class="table-heading">氏名</th>
+      <td><%=current_user.name%></td>
+    </tr>
+    <tr>
+      <th class="table-heading">ニックネーム</th>
+      <td><%=current_user.nickname%></td>
+    </tr>
+    
+    <tr>
+      <th class="table-heading">紹介文</th>
+      <td><%=current_user.introduction%></td>
+    </tr>
+    <tr>
+      <th class="table-heading">メールアドレス</th></th>
+      <td><%=current_user.email%></td>
+    </tr>
+      <th>&nbsp;</th>
+        <td>
+          <%= link_to "登録情報を編集する", edit_user_path(current_user) %>
+        　<%= link_to "ユーザモードを変更する", user_mode_select_path(current_user) %>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--もしproductを持っていたら…ここ商品情報を一覧表示リンク-->
+
+
