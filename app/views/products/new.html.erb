@@ -1,2 +1,35 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>商品新規登録</h1>
+<%= form_with model:@product,local:true do |f| %>
+  <div class="field">
+   <%= f.label :イメージ画像 %>
+   <%= f.attachment_field :image %>
+  </div>
+  <div class="field row">
+    <%= f.label :商品名 %>
+    <%= f.text_field :name, class: 'col-xs-12' %>
+  </div>
+  <div class="field row">
+    <%= f.label :商品説明 %>
+    <%= f.text_area :explanation, class: 'col-xs-12'%>
+  </div>
+  <div class="field row">
+    <%= f.label :税抜き価格 %>
+    <%= f.text_field :price, class: 'col-xs-12'%>
+  </div>
+  <div class="form-group has-icon">
+    <%= f.radio_button :is_sold_one, false %>
+    <%= f.label :片方のみの販売不可 %>
+    <%= f.radio_button :is_sold_one, true %>
+    <%= f.label :片方のみの販売可 %>
+  </div>
+  <div class="form-group has-icon">
+    <%= f.radio_button :is_hidden, false %>
+    <%= f.label :この商品を公開する %>
+    <%= f.radio_button :is_hidden, true %>
+    <%= f.label :この商品を非公開にする %>
+  </div>
+
+  <div class="actions row">
+    <%= f.submit class: 'btn btn-primary col-xs-12'%>
+  </div>
+<% end %>

@@ -8,5 +8,6 @@ class User < ApplicationRecord
   scope :designer, -> { where(is_designer: "true") }
   
   has_many :products, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
 end

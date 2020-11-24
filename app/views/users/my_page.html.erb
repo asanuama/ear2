@@ -1,13 +1,26 @@
+<%= flash[:notice] %>
 <h1>マイページ</h1>
 
 <%if current_user.is_designer? == false%>
- viewer
+ <%="現在 #{current_user.name} 様は viewerモードです"%>
 <% else %>
- designer
+ <%="現在 #{current_user.name} 様は designerモードです"%>
+  <% if !current_user.nickname.present?%>
+  <p> ・活動名を登録してみましょう</p>
+  <%end%>
+  <% if !current_user.introduction.present?%>
+  <p> ・自己紹介文を登録してみましょう</p>
+  <%end%>
+  <% if !current_user.introduction.present?%>
+  <p> ・自己紹介文を登録してみましょう</p>
+  <%end%>
+  <% if !current_user.image.present?%>
+  <p> ・イメージ写真を登録してみましょう</p>
+  <%end%>
+  <% if (!current_user.homepage || !current_user.instagram).present?%>
+  <p> ・HPやinstagramのリンクを登録してみましょう </p>
+  <%end%>
 <% end %>
-
-
-
 <%= attachment_image_tag current_user, :image, :fill, 10, 10, fallback: "no_image.jpg"%>
 
 <table class = "table">
@@ -26,14 +39,31 @@
       <td><%=current_user.introduction%></td>
     </tr>
     <tr>
-      <th class="table-heading">メールアドレス</th></th>
+      <th class="table-heading">メールアドレス</th>
       <td><%=current_user.email%></td>
     </tr>
-      <th>&nbsp;</th>
+    <tr>
+      <th class="table-heading">HP</th>
+      <th><%=current_user.homepage%></th>
+    </tr>
+    <tr>
+      <th class="table-heading">imstagram <i class="fab fa-instagram"></i></th>
+      <th><%=current_user.homepage%></th>
+    </tr>
+    <tr>
+      
+    </tr>
+      <tr>
+        <th><%= link_to "イヤリングを新規登録する", new_product_path,is_pierce: false %></th>
+        <th><%= link_to "ピアスを新規登録する", new_product_path, is_pierce: true%></th>
+      </tr>
         <td>
           <%= link_to "登録情報を編集する", edit_user_path(current_user) %>
         　<%= link_to "ユーザモードを変更する", user_mode_select_path(current_user) %>
         </td>
+        <tr>
+        <th><%= link_to "マイ商品一覧", products_path(user_id: current_user.id)%></th>
+      </tr>
     </tr>
   </tbody>
 </table>

@@ -3,6 +3,7 @@
     <li class="header-list-item"><%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %></li>
     <li class="header-list-item"><%= link_to "ログイン", new_user_session_path, class: "btn-primary"  %></li>
     <li class="header-list-item"><%= link_to "デザイナー一覧", users_path, class: "btn-primary"  %></li>
+    <li class="header-list-item"><%= link_to "商品一覧", products_path, class: "btn-primary"  %></li>
 <% if user_signed_in? %>
      <li class="header-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-primary" %></li>
 <% end %> 

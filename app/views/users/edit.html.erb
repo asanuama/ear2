@@ -1,6 +1,6 @@
 <h1>登録情報編集</h1>
-※ユーザモードの切り替えについては、以下⇩のリンクから行ってください
-<% link_to 'ユーザモード切り替えページへ', user_mode_select_path%>
+<p>※ユーザモードの切り替えについては、以下⇩のリンクから行ってください</p>
+<%= link_to 'ユーザモード切り替えページへ', user_mode_select_path,class:"btn btn-primary"%>
 
 <%= form_with(model: current_user, url:users_path(current_user),local:true) do |f|%>
 <!--あとでエラー追記-->
