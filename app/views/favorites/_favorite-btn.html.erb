@@ -1,6 +1,10 @@
-<% if product.favorited_by?(current_user) %>
-  <%= link_to product.favorites.count, product_favorites_path(product), method: :delete, remote: true,class: "glyphicon glyphicon-heart" %>
+<% if user_signed_in? %>
+  <% if product.favorited_by?(current_user) %>
+    <%=link_to product.favorites.count, product_favorites_path(product), method: :delete, remote: true ,class: "glyphicon glyphicon-heart"%>
+  <% else %>
+    <%=link_to product.favorites.count, product_favorites_path(product), method: :post, remote: true ,class: "glyphicon glyphicon-heart-empty" %>
+  <% end %>
 <% else %>
-  <%= link_to product.favorites.count, product_favorites_path(product), method: :post, remote: true,class: "glyphicon glyphicon-heart-empty" %>
+    <p><span>お気に入り数: </span><%= product.favorites.count %></p>
 <% end %>
-<!--いいねを送信しているリンクにremote: true を追加することでjs形式のリクエストを送信-->
+

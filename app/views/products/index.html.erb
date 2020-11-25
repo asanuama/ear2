@@ -25,8 +25,12 @@
                   片方のみの販売不可
                 <% end %>
               </td>
-
-                
+              <td>
+                <% if product.is_hidden %>
+                  表示中
+                <% else %>
+                  非表示
+                <% end %>
               </td>
             </tr>
           <% end %>

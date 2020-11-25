@@ -42,22 +42,22 @@
             <% end %>
           </div>
         </div>
+        <div class="form-group row">
+          <div class="col-xs-2">
+            <label>表示モード</label>
+          </div>
+          <div class="col-xs-6">
+            <% if @product.is_hidden %>
+              非表示
+            <% else %>
+            　表示中
+            <% end %>
+          </div>
+        </div>
         
-        <% if @product.favorited_by?(current_user) %>
-        <li><%= link_to product_favorites_path(@product), method: :delete do %>
-        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-        <%= @product.favorites.count %> いいね
-        <% end %>
-        </li>
-        <% else %>
-        <li>
-        <%= link_to product_favorites_path(@product), method: :post do %>
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
-          <%= @product.favorites.count %> いいね
-        <% end %>
-        </li>
-        <% end %>
-        
+        <div id="product_<%= @product.id %>">
+          <div class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></div>
+        </div>
       </div>
     </div>
     <div class="text-right">
@@ -65,4 +65,6 @@
       <%= link_to "マイページへ",user_my_page_path,class: "btn btn-primary" %>
     </div>
 </div>
+
+
 

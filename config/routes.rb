@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#top'
   devise_for :users
-  resources :users, :only => [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :products do
-   resource :favorites, only: [:create, :destroy]
+   resources :favorites, only: [:index, :create, :destroy]
   end
   get 'user/my_page' => 'users#my_page' , as: 'user_my_page'
   get 'user/mode_select/:id' => 'users#mode_select', as: 'user_mode_select'
