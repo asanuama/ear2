@@ -1,9 +1,33 @@
-<h1>EAR! top 画面</h1>
-    <li class="header-list-item"><%= link_to "トップ", root_path, class: "btn-primary" %></li>
-    <li class="header-list-item"><%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %></li>
-    <li class="header-list-item"><%= link_to "ログイン", new_user_session_path, class: "btn-primary"  %></li>
-    <li class="header-list-item"><%= link_to "デザイナー一覧", users_path, class: "btn-primary"  %></li>
-    <li class="header-list-item"><%= link_to "商品一覧", products_path, class: "btn-primary"  %></li>
-<% if user_signed_in? %>
-     <li class="header-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-primary" %></li>
-<% end %> 
+<div class="row">
+  <div class='top-message col-md-offset-3 col-md-6'>
+    <h1>EAR! top</h1>
+    <h1>CONSEPT</h1>
+    <p class = "consept-text">
+    投稿型イヤリング、ピアスの検索サイトです。<br>
+    イヤリング、ピアスを投稿し、それを見たサイトの閲覧者
+    viewerが本サイトにおいてたくさんの作品を比較検討し、<br>
+    そのような希望を持つ方が一つのサイト内で手軽に比較検討し、本当にニーズに合致した商品、デザイナーさんとの出会いのきっかけとなる場。</p>
+  </div>
+  <!--------------------------------------------------------------------------------------------------->
+  <div class='strength col-md-offset-3 col-md-6'>
+        <h4 class="feature-box-title">ユーザ</h3>
+        <p class="feature-box-text">
+          「大規模ショップやブランドでは買えないような商品を探したい」<br>
+          「片方を紛失してしまったため、片方のみのものを購入したい」<br>
+          「アレルギーの有無などをもとに、ニーズにあった商品を探したい」
+        </p>
+        <h4 class="feature-box-title">デザイナー</h3>
+        <p class="feature-box-text">
+          「多くの方にに作品を知って欲しい」<br>
+          「もっとたくさんの人にインスタグラムやHPに来てもらいたい」<br>
+          「他のフリーデザイナーの作品を新しく見つけてみたい」
+        </p>
+  </div>
+  <!--------------------------------------------------------------------------------------------------->
+
+
+
+   
+
+
+

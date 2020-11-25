@@ -1,41 +1,19 @@
-<h1>商品一覧ページ</h1>
 <div class="container">
   <div class="row">
     <h1 class="under-border">商品一覧</h1>
-    <div class="col-xs-11">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>商品名</th>
-            <th>商品説明<th>
-            <th>税抜価格</th>
-            <th>ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @products.each do |product| %>
-            <tr>
-              <td><%= link_to product.name,product_path(product.id) %></td>
-              <td><%= product.explanation %></td>
-              <td><%= product.price %></td>
-              <td>
-                <% if product.is_sold_one %>
-                  片方のみ販売可
-                <% else %>
-                  片方のみの販売不可
-                <% end %>
-              </td>
-              <td>
-                <% if product.is_hidden %>
-                  表示中
-                <% else %>
-                  非表示
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="col-md-9">
+      <div class="index-box">
+        <% @products.each do |product| %>
+          <div class = "index-inline-box">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
+              <%= product.name %>
+              <%= product.price %>円
+            <% end %>
+          </div>
+          <%end%>
+        </div>
     </div>
+  </div>
 </div>
 
