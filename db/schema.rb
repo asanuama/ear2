@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_235523) do
+ActiveRecord::Schema.define(version: 2020_11_26_042119) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_235523) do
     t.string "name"
     t.string "nickname"
     t.text "introduction"
-    t.string "image"
+    t.string "image_id"
     t.boolean "is_designer", default: false
     t.string "homepage"
     t.string "instagram"

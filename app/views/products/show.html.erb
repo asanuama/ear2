@@ -2,52 +2,56 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-1">
-    <table class="table">
-      <tr>
-        <th><%= attachment_image_tag @product, :image, :limit, 300, 300, fallback: "no_image.jpg",size: "320x320" %></th>
-      </tr>
-    </table>
+      <table class="table">
+        <tr>
+          <th><%= attachment_image_tag @product, :image, :limit, 300, 300, fallback: "no_image.jpg",size: "320x320" %></th>
+        </tr>
+      </table>
     </div>
-  <div class="col-md-4 col-md-offset-1">
-    <table class="table">
-      <tr>
-        <th>
-          <%= @product.name %>
+    <div class="col-md-4 col-md-offset-1">
+      <table class="table">
+        <tr>
+          <th>
+            商品名 : <%= @product.name %>
           </th>
-      </tr>
-      <tr>
+        </tr>
+        <tr>
         <th>
-          <%= @product.explanation%>
+            作家名 : <%= @product.user.name %>
         </th>
-      </tr>
-      <tr>
-        <th>
-          <% if @product.is_sold_one %>
-            可
-          <% else %>
-            不可
-          <% end %>
-        </th>
-      </tr>
-      <tr>
-        <th>
-          <% if @product.is_hidden %>
-            非表示
-          <% else %>
-            表示中
-          <% end %>
-        </th>
-      </tr>
-      <th>
-        <td>
-
-        </td>
-      </th>
-    </table>
-    <div id="product_<%= @product.id %>">
-        <div class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></div>
+        </tr>
+        <tr>
+          <th><%= @product.explanation%></th>
+        </tr>
+        <tr>
+          <th>
+            商品価格(税抜): <%= @product.price%>円
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <% if @product.is_sold_one %>
+            片方のみの販売 : 可
+            <% else %>
+            片方飲みの販売 : 不可
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <% if @product.is_hidden %>
+            表示モード : 非表示
+            <% else %>
+            表示モード : 表示中
+            <% end %>
+          </th>
+        </tr>
+      </table>
+      <div id="product_<%= @product.id %>">
+          <div class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></div>
+      </div>
+      <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" %>
     </div>
-    <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" %>
   </div>
 </div>
 

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  attachment :image
          
   scope :viewer, -> { where(is_designer: "false") }
   scope :designer, -> { where(is_designer: "true") }
