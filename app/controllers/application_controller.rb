@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
    
   private
   def after_sign_in_path_for(resource)
-    user_my_page_path(resource)
+    if @user.email == 'guest@example.com'
+      root_path
+    else
+      user_my_page_path(resource)
+    end
   end
     
   def after_signout_path_for(resource)

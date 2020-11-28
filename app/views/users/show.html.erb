@@ -14,17 +14,20 @@
           <th>作家名 : <%= @user.name %></th>
         </tr>
         <tr>
-          <%if current_user.introduction.present?%>
+          <%if @user.introduction.present?%>
             <td><%= @user.introduction %></td>
           <% else %>
             <td>！紹介文は未登録です</td>
           <% end %>
         </tr>
         <tr>
+          <%if @user.homepage.present?%>
           <td>
             <%= @user.homepage %>
-            <%= @user.instagram %>
-          </td>
+            <%= @user.instagram %></td>
+            <% else %>
+          <td>！リンクは未登録です</td>
+          <% end %>
         </tr>
       </table>
     </div>

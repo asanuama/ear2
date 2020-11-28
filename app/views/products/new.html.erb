@@ -23,6 +23,12 @@
     <%= f.label :片方のみの販売可 %>
   </div>
   <div class="form-group has-icon">
+    <%= f.radio_button :is_allergiefree, false %>
+    <%= f.label :金属アレルギー非対応 %>
+    <%= f.radio_button :is_allergiefree, true %>
+    <%= f.label :金属アレルギー対応 %>
+  </div>
+  <div class="form-group has-icon">
     <%= f.radio_button :is_hidden, false %>
     <%= f.label :この商品を公開する %>
     <%= f.radio_button :is_hidden, true %>

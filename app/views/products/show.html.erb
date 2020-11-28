@@ -11,22 +11,16 @@
     <div class="col-md-4 col-md-offset-1">
       <table class="table">
         <tr>
-          <th>
-            商品名 : <%= @product.name %>
-          </th>
+          <th><%= @product.name %></th>
         </tr>
         <tr>
-        <th>
-            作家名 : <%= @product.user.name %>
-        </th>
+        <th>作家名 : <%= @product.user.name %></th>
         </tr>
         <tr>
           <th><%= @product.explanation%></th>
         </tr>
         <tr>
-          <th>
-            商品価格(税抜): <%= @product.price%>円
-          </th>
+          <th>商品価格(税抜): <%= @product.price%>円</th>
         </tr>
         <tr>
           <th>
@@ -37,6 +31,22 @@
             <% end %>
           </th>
         </tr>
+        <% if @product.is_allergiefree %>
+          <tr>
+            <th>※ 金属アレルギー対応商品</th>
+          </tr>
+        <% end %>
+        <% if @product.user.homepage.present?%>
+          <tr>
+            <th>HP : <%=@product.user.homepage%></th>
+          </tr>
+        <% end %>
+        <% if @product.user.instagram.present?%>
+          <tr>
+            <th>instagram <i class="fab fa-instagram"></i> : <%=@product.user.instagram%></th>
+          </tr>
+        <% end %>
+        <%if @product.user == current_user%>
         <tr>
           <th>
             <% if @product.is_hidden %>
@@ -46,11 +56,16 @@
             <% end %>
           </th>
         </tr>
+        <%end%>
+        <tr>
+        <th id="product_<%= @product.id %>">
+          お気に入り登録 : <span class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></soan>
+        </th>
+        </tr>
       </table>
-      <div id="product_<%= @product.id %>">
-          <div class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></div>
-      </div>
+      <% if @product.user == current_user %>
       <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -3,7 +3,6 @@ class FavoritesController < ApplicationController
   
   def index
     @product = Product.where(current_user.favorite)
-    byebug
   end
   
   def create

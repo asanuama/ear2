@@ -3,9 +3,6 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
-    # if params[:is_pierce] == false
-    # else
-    # end
   end
 
   def create
@@ -24,7 +21,7 @@ class ProductsController < ApplicationController
     if params[:user_id]
 		  @products = current_user.products.order(created_at: :desc).all
     else
-      # IDなければ全件表示
+      # IDなければ、非表示モードでない全件表示
       @products = Product.exposed.all
     end
   end
@@ -62,6 +59,6 @@ class ProductsController < ApplicationController
   
   private
   def product_params
-    params.require(:product).permit(:name, :explanation, :image, :price, :is_pierce, :is_sold_one, :is_hidden)
+    params.require(:product).permit(:name, :explanation, :image, :price, :is_pierce, :is_sold_one, :is_hidden, :is_allergiefree )
   end
 end
