@@ -5,36 +5,66 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/120d3f8e53.js" crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('.menu-trigger').on('click', function(event) {
+          $(this).toggleClass('active');
+          $('#sp-menu').fadeToggle();
+          event.preventDefault();
+        });
+      });
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
   <body>
     <header>
-      <div class="logo"><%= link_to "トップ", root_path%></div>
-      <div class="search-form">
-      <%= form_tag(search_path, method: :get) do %>
-        <%= text_field_tag 'search[content]' %>
-        <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Product" => "product" }) %>
-        <%= submit_tag '検索', class: "btn btn-primary" %>
-      <% end %>
+      <div class="logo"><%= link_to "ear!", root_path, class:'logolink'%></div>
+      
+      <!------->
+      <div id="sp-menu">
+        <ul>
+          <li><%= link_to "デザイナー一覧", users_path%></li>
+          <li><%= link_to "商品一覧", products_path %></li>
+          <li><%= link_to "ピアス一覧", products_path ,is_pierce: true%></li>
+          <li><%= link_to "イヤリング一覧", products_path ,is_pierce: false%></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "マイページ", user_my_page_path%></li>
+          <%else%>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path%></li>
+            <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
+          <% end %>
+        </ul>
+        <div class="header-list-item search-form">
+          <%= form_tag(search_path, method: :get) do %>
+            <%= text_field_tag 'search[content]' %>
+            <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Product" => "product" }) %>
+            <%= button_tag '<i class="fa fa-search"></i>'.html_safe, :type => "submit", :class =>"btn btn-default btn-s-md" %>
+          <% end %>
+        </div>
       </div>
-      <div class="header-list">
-        <nav>
-          <ul>
-            <li class="header-list-item"><%= link_to "デザイナー一覧", users_path%></li>
-            <li class="header-list-item"><%= link_to "商品一覧", products_path %></li>
-              <% if user_signed_in? %>
-            <li class="header-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li class="header-list-item"><%= link_to "新規登録", new_user_registration_path%></li>
-            <li class="header-list-item"><%= link_to "マイページ", user_my_page_path%></li>
-              <%else%>
-            <li class="header-list-item"><%= link_to "ログイン", new_user_session_path %></li>
-            <li class="header-list-item"><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
-              <% end %>
-          </ul>
-        </nav>
-      </div>  
+      <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <!------>
     </header>
     <%= yield %>
+    <script>
+      $(function() {
+        $('.menu-trigger').on('click', function(event) {
+          $(this).toggleClass('active');
+          $('#sp-menu').fadeToggle();
+        event.preventDefault();
+        });
+      });
+    </script>
   </body>
 </html>

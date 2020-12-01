@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.designer
+    @users = User.designer.page(params[:page]).per(15)
   end
 
   def show

@@ -2,35 +2,37 @@
   <div class='col-md-6 col-md-offset-3'>
   <h1>登録情報編集</h1>
   <%= form_with model:current_user, url:user_path(current_user), method: :patch, local:true do |f| %>
-<!--あとでエラー追記-->
-  <div class="field">
-    <%= f.label :イメージ画像 %>
-    <%= f.attachment_field :image, class: "col-xs-12" %>
-  </div>
-  <div class = "field row">
-    <%= f.label :名前 %>
-    <%= f.text_field :name, class: 'col-xs-12'%>
-  </div>
-  <div class = "field row">
-    <%= f.label :ニックネーム%>
-    <%= f.text_field :nickname, class: 'col-xs-12' %>
-  <div class = "field row">
-    <%= f.label :紹介文%>
-    <%= f.text_area :introduction, class: 'col-xs-12'%>
-  </div>
-  <div class = "field row">
-    <%= f.label :ホームページ%>
-    <%= f.text_field :homepage, class: 'col-xs-12'%>
-  <div class = "field row">
-    <%= f.label :インスタグラム%>
-    <%= f.text_field :instagram, class: 'col-xs-12'%>
-  </div>
-  
-  <div class="form-group">
-    <%= f.submit '編集内容を保存する' ,class:"btn btn-primary"%>
-  </div>
+    <div class="field">
+      <%= f.label :イメージ画像 %>
+      <%= attachment_image_tag current_user, :image, fallback: 'no_image.jpg', onChange: "$('.img_field').()", class: 'center-block img_prev',:size =>'400x400'%>
+      <%= f.attachment_field :image, class: 'img_field' %>
+    </div>
+    <div class = "field row">
+      <%= f.label :名前 %>
+      <%= f.text_field :name, class: 'col-xs-12'%>
+    </div>
+    <div class = "field row">
+      <%= f.label :活動名・ブランド名%>
+      <%= f.text_field :nickname, class: 'col-xs-12' %>
+    <div class = "field row">
+      <%= f.label :紹介文%>
+      <%= f.text_area :introduction, class: 'col-xs-12'%>
+    </div>
+    <div class = "field row">
+      <%= f.label :ホームページ%>
+      <%= f.text_field :homepage, class: 'col-xs-12'%>
+    </div>
+    <div class = "field row">
+      <%= f.label :インスタグラム%>
+      <%= f.text_field :instagram, class: 'col-xs-12'%>
+    </div>
+    <div class="actions row">
+      <%= f.submit '編集内容を保存する' ,class:"btn btn-primary"%>
+    </div>
   <% end %>
-  </div>
-</div>
+ 
+  
 <p>※ユーザモードの切り替えについては、以下⇩のリンクから行ってください</p>
 <%= link_to 'ユーザモード切り替えページへ', user_mode_select_path,class:"btn btn-primary"%>
+</div>
+ </div>

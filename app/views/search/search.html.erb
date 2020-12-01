@@ -4,7 +4,11 @@
     <div class="col-md-9">
       <% if @datas.empty?%>
         <p>検索結果 : 0件</p>
-        <%= "「#{@content}」 に当てはまる#{@model}は存在しないか非表示モードとなっています"%> 
+        <% if @model == 'user'%>
+          <%= "「#{@content}」 に当てはまるデザイナーは存在しないか非表示モードとなっています"%> 
+        <% else %>
+           <%= "「#{@content}」 に当てはまる商品は存在しないか非表示モードとなっています"%> 
+        <% end%>
       <% else %>
       <div class="index-box">
   　    <% if @model == 'product' %>

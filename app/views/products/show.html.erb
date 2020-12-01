@@ -24,6 +24,15 @@
         </tr>
         <tr>
           <th>
+            <% if @product.is_pierce %>
+            カテゴリ : ピアス
+            <% else %>
+            カテゴリ : イヤリング
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th>
             <% if @product.is_sold_one %>
             片方のみの販売 : 可
             <% else %>
@@ -57,14 +66,20 @@
           </th>
         </tr>
         <%end%>
+        
+        <% @product.tags.each do |tag| %>
+          <p>#<%= tag.tag_name %></p>
+        <% end %>
         <tr>
+          
         <th id="product_<%= @product.id %>">
-          お気に入り登録 : <span class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></soan>
+          <span class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></soan>
         </th>
         </tr>
       </table>
       <% if @product.user == current_user %>
-      <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" %>
+      <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" ,data: {"turbolinks" => false}%>
+      <%= link_to "削除する",product_path(@product.id) ,method: :delete, "data-confirm" => "本当に削除しますか？（この操作は取り消せません）", class:"btn btn-danger"%>
       <% end %>
     </div>
   </div>

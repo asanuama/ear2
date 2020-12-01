@@ -15,22 +15,30 @@
         </tr>
         <tr>
           <%if @user.introduction.present?%>
-            <td><%= @user.introduction %></td>
+            <th><%= @user.introduction %></th>
           <% else %>
-            <td>！紹介文は未登録です</td>
+            <th>！紹介文は未登録です</th>
           <% end %>
         </tr>
-        <tr>
-          <%if @user.homepage.present?%>
-          <td>
-            <%= @user.homepage %>
-            <%= @user.instagram %></td>
-            <% else %>
-          <td>！リンクは未登録です</td>
+        <%if @user.homepage.present?%>
+          <tr>
+            <th>HP : <%= @user.homepage %></th>
+          <tr>
+          <% end %>
+          <% if @user.instagram.present? %>
+          <tr>
+            <th>instagram  <i class="fab fa-instagram"></i> : <%= @user.instagram %></th>
+          </tr>
+          <% end %>
+          <%if !(@user.homepage.present? || @user.instagram.present?)%>
+          <tr>
+            <th>！リンクは未登録です</th>
+          </tr>
           <% end %>
         </tr>
       </table>
+      <%=link_to'この作家の商品一覧へ', products_path(@user), user_id: @user.id%>
     </div>
   </div>
 </div>
-  
+

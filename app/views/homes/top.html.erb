@@ -1,30 +1,52 @@
-<div class="row">
-  <div class='top-message col-md-offset-3 col-md-6'>
-    <h1>EAR! top</h1>
-    <h1>CONSEPT</h1>
-    <p class = "consept-text">
-    投稿型イヤリング、ピアスの検索サイトです。<br>
-    イヤリング、ピアスを投稿し、それを見たサイトの閲覧者
-    viewerが本サイトにおいてたくさんの作品を比較検討し、<br>
-    そのような希望を持つ方が一つのサイト内で手軽に比較検討し、本当にニーズに合致した商品、デザイナーさんとの出会いのきっかけとなる場。</p>
-  </div>
-  <!--------------------------------------------------------------------------------------------------->
-  <div class='strength col-md-offset-3 col-md-6'>
-        <h4 class="feature-box-title">ユーザ</h3>
-        <p class="feature-box-text">
-          「大規模ショップやブランドでは買えないような商品を探したい」<br>
-          「片方を紛失してしまったため、片方のみのものを購入したい」<br>
-          「アレルギーの有無などをもとに、ニーズにあった商品を探したい」
-        </p>
-        <h4 class="feature-box-title">デザイナー</h3>
-        <p class="feature-box-text">
-          「多くの方にに作品を知って欲しい」<br>
-          「もっとたくさんの人にインスタグラムやHPに来てもらいたい」<br>
-          「他のフリーデザイナーの作品を新しく見つけてみたい」
-        </p>
-  </div>
-  <!--------------------------------------------------------------------------------------------------->
+<div class="top row">
+  <div class='col-md-offset-3 col-md-6'>
+    <div class="scroll">
+      <% @products.each do |product|%>
+        <%= link_to product_path(product.id) do %>
+          <%= attachment_image_tag product, :image, size: "200x200" %>
+        <% end %>
+      <% end %>
+    </div>
 
+    <div class = "consept">
+      <div class = "consept-text">
+      <h1>CONSEPT</h1>
+      投稿型のイヤリング、ピアス検索サイトです。
+      
+      
+      <!------------->
+            <div class = "consept-box">
+            「大規模ショップやブランドでは買えないような商品を探したい」,
+            「アレルギーの有無などをもとに、ニーズにあった商品を探したい」
+            という方。
+            </div>
+          </div>
+          <div class='consept-image'>
+            <%= image_tag 'no_image.jpg' ,size: "200x200"%>
+          </div>
+        </div>
+          <div class='consept-image'>
+             <%= image_tag 'no_image.jpg' ,size: "200x200"%>
+          </div>
+          <div class=''>
+            「多くの方にに作品を知って欲しい」,
+            「もっとたくさんの人にインスタグラムやHPに来てもらいたい」,
+            「他のフリーデザイナーの作品を新しく見つけてみたい」という思いをもつデザイナーさん。<br>
+          </div>
+        </div>
+        <!--------------->
+       <div>
+     　一つのサイト内で手軽に比較検討し、本当に自分にあった商品、デザイナーさんとの
+       よい出会いの場になればという思いから生まれました。</br>
+       </div>
+       
+        
+            <%= image_tag 'model.jpg', class:'topimage' %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
    

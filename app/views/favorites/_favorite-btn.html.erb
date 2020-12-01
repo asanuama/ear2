@@ -5,6 +5,6 @@
     <%=link_to product.favorites.count, product_favorites_path(product), method: :post, remote: true ,class: "glyphicon glyphicon-heart-empty" %>
   <% end %>
 <% else %>
-    <p><span>お気に入り数: </span><%= product.favorites.count %></p>
+    <p><span>お気に入り: </span><%= product.favorites.count %></p>
 <% end %>
 

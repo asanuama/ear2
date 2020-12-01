@@ -17,3 +17,13 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require bxslider
+$(function() {
+    $('.scroll').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToShow: 4
+    });
+});
+
+
+
