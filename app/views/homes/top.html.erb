@@ -1,5 +1,13 @@
 <div class="top row">
   <div class='col-md-offset-2 col-md-8'>
+    <div class = 'top-link-box'>
+      <div class = 'top-link-item'><%= link_to "ear！ について", about_path%></div>
+      <div class = 'top-link-item'><%= link_to "all デザイナー", users_path%></div>
+      <div class = 'top-link-item'><%= link_to "all 商品", products_path %></div>
+      <div class = 'top-link-item'><%= link_to "all ピアス", products_path(is_pierce: true)%></div>
+      <div class = 'top-link-item'><%= link_to "all イヤリング", products_path(is_pierce: false)%></div>
+      <div class = 'top-link-item'><%= link_to "ノンアレルギー", products_path(is_allergiefree: true)%></div>
+    </div>
    
     <div class="scroll">
       <% @products.each do |product|%>
@@ -8,21 +16,13 @@
         <% end %>
       <% end %>
     </div>
-
-    <% Product.exposed.all_tags.pluck(:name).each do |tag|%>
-      <%= link_to tag, products_path(tag_name: tag)%>
-    <%end%>
-    
-    <div class = 'top-link'>
-      <div class = 'in'><%= link_to "ear！ について", about_path%></li>
-      <li><%= link_to "デザイナー一覧", users_path%></li>
-      <li><%= link_to "商品一覧", products_path %></li>
-      <li><%= link_to "ピアス一覧", products_path(is_pierce: true)%></li>
-      <li><%= link_to "イヤリング一覧", products_path(is_pierce: false)%></li>
-      <li><%= link_to "ノンアレルギー商品一覧", products_path(is_allergiefree: true)%></li>
+    <div class = 'tag-links'>
+      <% Product.exposed.all_tags.pluck(:name).each do |tag|%>
+        <%= link_to tag, products_path(tag_name: tag)%>
+      <%end%>
     </div>
     
-    
+
   </div>
 </div>
 

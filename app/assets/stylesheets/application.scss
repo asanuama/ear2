@@ -59,11 +59,22 @@ main {
   border-radius: 50%;
 }
 
-.to{
-  margin-top: 100px;
-  width: 280px;
-  height: 280px;
+.top-link-box{
+  width: 100%;
+  display: flex;
+  margin: 50px auto 0 0;
+}
+
+.top-link-item{
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  background-color: #ffffff;
+  margin: 15px 15px;
+  border: 1px solid;
+  line-height: 150px;
+  text-align: center;
+  font-size: 20px;
 }
 
 /* ヘッダー */
@@ -75,16 +86,22 @@ main {
  }
 
 .logo {
-  width: 100px;
-  margin: 0 auto 0 auto ;
-  text-align: center;
+  width: 200px;
   color: black;
-  font-size: 50px;
+  font-size: 60px;
   font-weight: 700; 
+  margin: 0 20px 0 20px;
   .logolink {
     text-decoration: none;
     color: black;
   }
+}
+.header-item{
+  display: flex;
+}
+
+.header-link-item{
+  display: flex;
 }
 
 
