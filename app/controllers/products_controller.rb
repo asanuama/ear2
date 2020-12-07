@@ -9,11 +9,6 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user_id = current_user.id
     if @product.save
-      # delete(" ")で文字列から全ての空白を削除する
-      # split(",")で受け取った文字列をカンマ（,）区切りで配列にする
-      tag_list = tag_params[:tag_name].split(nil)
-      # Article.rb に save_tags()メソッドを定義
-      @product.save_tags(tag_list)
       flash[:notice] = "商品を登録しました"
       redirect_to product_path(@product)
     else
@@ -22,19 +17,23 @@ class ProductsController < ApplicationController
   end
   
   def index
-      # パラメータにユーザID含まれてたらそのユーザのproductのみ表示
-    # if params[:user_id]
-    #   user = User.find(params:[user_id])
-		  # @products = user.products.order(created_at: :desc).all
-    # else
-      # IDなければ、非表示モードでない全件表示
+    if params[:tag_name]
+      @products = Product.exposed.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
+    elsif params[:is_pierce] == "true"
+      @products = Product.exposed.pierce.page(params[:page]).per(15)
+    elsif params[:is_pierce] == "false"
+      @products = Product.exposed.nonhole_pierce.page(params[:page]).per(15)
+    elsif params[:is_allergiefree] == "true"
+      @products = Product.exposed.allergiefree.page(params[:page]).per(15)
+    else
       @products = Product.exposed.page(params[:page]).per(15)
-      
-    # end
+    end
   end
 
   def show
     @product = Product.find(params[:id])
+    user = @product.user
+    @products = user.products.where.not(id:@product.id).order("RANDOM()").limit(3)
   end
 
   def edit
@@ -71,12 +70,7 @@ class ProductsController < ApplicationController
   
   private
   def product_params
-    params.require(:product).permit(:name, :explanation, :image, :price, :is_pierce, :is_sold_one, :is_hidden, :is_allergiefree )
-  end
-  
-  # タグ用にストロングパラメータを設定して、文字列を受け取る
-  def tag_params
-    params.require(:product).permit(:tag_names)
+    params.require(:product).permit(:name, :explanation, :image, :price, :is_pierce, :is_sold_one, :is_hidden, :is_allergiefree, :tag_list)
   end
   
   def ensure_correct_user

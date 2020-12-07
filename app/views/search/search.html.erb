@@ -1,37 +1,37 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-offset-2 col-md-8">
     <h1 class="under-border">検索結果一覧</h1>
-    <div class="col-md-9">
-      <% if @datas.empty?%>
-        <p>検索結果 : 0件</p>
-        <% if @model == 'user'%>
-          <%= "「#{@content}」 に当てはまるデザイナーは存在しないか非表示モードとなっています"%> 
-        <% else %>
-           <%= "「#{@content}」 に当てはまる商品は存在しないか非表示モードとなっています"%> 
-        <% end%>
-      <% else %>
       <div class="index-box">
-  　    <% if @model == 'product' %>
-          <% @datas.each do |product| %>
-            <div class = "index-inline-box">
-              <%= link_to product_path(product.id) do %>
-                <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
-                <%= product.name %>
-                <%= product.price %>円
-              <% end %>
-            </div>
-          <% end %>
+        <% if @datas.empty?%>
+          <p>検索結果 : 0件</p>
+          <% if @model == 'user'%>
+            <%= "「#{@content}」 に当てはまるデザイナーは存在しないか非表示モードとなっています"%> 
+          <% else %>
+             <%= "「#{@content}」 に当てはまる商品は存在しないか非表示モードとなっています"%> 
+          <% end%>
         <% else %>
-          <% @datas.each do |user| %>
-            <div class = "index-inline-box">
-              <%= link_to user_path(user) do %>
-                <%= attachment_image_tag user, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
-                <%= user.name %>
-              <% end %>
-            </div>
+    　     <% if @model == 'product' %>
+            <% @datas.each do |product| %>
+              <div class = "index-inline-box">
+                <%= link_to product_path(product.id) do %>
+                  <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
+                  <%= product.name %>
+                  <%= product.price %>円
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <% @datas.each do |user| %>
+              <div class = "index-inline-box">
+                <%= link_to user_path(user) do %>
+                  <%= attachment_image_tag user, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
+                  <%= user.name %>
+                <% end %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
   </div>
 </div>

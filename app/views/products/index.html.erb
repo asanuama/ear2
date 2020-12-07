@@ -9,12 +9,13 @@
               <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
               <%= product.name %><br>
               <%= product.price %>円
+              <%=render 'layouts/tag_list', tag_list: product.tag_list%>
             <% end %>
           </div>
-          <%end%>
-          <!-----商品----->
+        <%end%>
+        <%= paginate @products %>
         </div>
+      </div>
     </div>
   </div>
 </div>
-

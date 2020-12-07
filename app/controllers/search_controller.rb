@@ -15,8 +15,7 @@ class SearchController < ApplicationController
   end
 
   def search_for(model, content)
-    if 'partical'
-      partical(model, content)
-    end
+    partical(model, content)
   end
+  
 end

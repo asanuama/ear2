@@ -16,7 +16,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
-//= require bxslider
+
 $(function() {
     $('.scroll').slick({
         autoplay: true,

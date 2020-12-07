@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      product:
+        name: '商品名'
+        explanation: '紹介文'
+        price: '価格'
+        image: 'イメージ画像'
+      user:
+        name: '名前'
+        introduction: '紹介文'
+        
+

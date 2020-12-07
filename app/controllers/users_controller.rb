@@ -5,9 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @products = @user.products.all
   end
 
   def edit
+    @user = current_user
   end
   
   def update
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザ情報を更新しました"
       redirect_to user_my_page_path(@user)
     else
-      render 'user/edit'
+      render 'edit'
     end
   end
 

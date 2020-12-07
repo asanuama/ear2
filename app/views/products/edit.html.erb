@@ -2,6 +2,7 @@
   <div class='col-md-6 col-md-offset-3'>
     <h1>商品編集ページ</h1>
     <%= form_with model:@product,local:true do |f| %>
+    <%= render 'layouts/error_message', model: f.object %>
       <div class="field">
         <%= f.label :イメージ画像 %>
         <%= attachment_image_tag @product, :image, fallback: 'no_image.jpg', onChange: "$('.img_field').()", class: 'center-block img_prev',:size =>'400x400'%>
@@ -25,6 +26,11 @@
         <%= f.label :税抜き価格 %>（円）
         <%= f.text_field :price, class: 'col-xs-12'%>
       </div>
+      <div class = "form-group">
+        <%= f.label :タグ%>
+         ※複数の場合はスペースをあけずに「,」区切りで入力してください
+        <%= f.text_field :tag_list, value: @product.tag_list.join(','), class: 'col-xs-12'%>
+      </div> 
       <div class="form-group">
         <%= f.radio_button :is_sold_one, false %>
         <%= f.label :片方のみの販売不可 %>

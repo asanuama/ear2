@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @product = Product.where(current_user.favorite)
   end
   
   def create

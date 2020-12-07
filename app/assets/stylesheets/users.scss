@@ -1,3 +1,41 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mylink-box{
+  display: flex;
+}
+
+.my-link{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin: 20px 20px;
+  border: 1px solid;
+}
+
+.my-link-contents{
+  line-height: 100px;
+  text-align: center;
+}
+
+.mode-select{
+  width: 800px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.mode-select-text{
+  width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  border: solid 1px;
+}
+
+.caution{
+  color: red;
+}
+
+.introduction{
+  margin-top: 30px;
+}

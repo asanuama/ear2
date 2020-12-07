@@ -5,11 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :image
          
-  scope :viewer, -> { where(is_designer: "false") }
   scope :designer, -> { where(is_designer: "true") }
   
   has_many :products, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  
+  validates :name, presence: true, length: { in: 2..20 } 
+  validates :introduction, length: { in: 0..200 } 
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|

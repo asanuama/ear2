@@ -14,7 +14,11 @@
           <th><%= @product.name %></th>
         </tr>
         <tr>
-        <th>作家名 : <%= @product.user.name %></th>
+          <% if @product.user.is_designer?%>
+            <th>作家名 : <%= link_to"#{@product.user.name}",user_path(@product.user) %></th>
+          <% else %>
+            <th>作家名 : <%=@product.user.name %></th>
+          <% end %>
         </tr>
         <tr>
           <th><%= @product.explanation%></th>
@@ -36,7 +40,7 @@
             <% if @product.is_sold_one %>
             片方のみの販売 : 可
             <% else %>
-            片方飲みの販売 : 不可
+            片方のみの販売 : 不可
             <% end %>
           </th>
         </tr>
@@ -47,12 +51,12 @@
         <% end %>
         <% if @product.user.homepage.present?%>
           <tr>
-            <th>HP : <%=@product.user.homepage%></th>
+            <th>HP : <%=link_to "#{@product.user.homepage}"%></th>
           </tr>
         <% end %>
         <% if @product.user.instagram.present?%>
           <tr>
-            <th>instagram <i class="fab fa-instagram"></i> : <%=@product.user.instagram%></th>
+            <th>instagram <i class="fab fa-instagram"></i> : <%=link_to "#{@product.user.instagram}"%></th>
           </tr>
         <% end %>
         <%if @product.user == current_user%>
@@ -67,11 +71,12 @@
         </tr>
         <%end%>
         
-        <% @product.tags.each do |tag| %>
-          <p>#<%= tag.tag_name %></p>
+        <%if !@product.tag_list.empty? %>
+          <tr>
+            <th>タグ : <%=render 'layouts/tag_list', tag_list: @product.tag_list%></th>
+          </tr>
         <% end %>
-        <tr>
-          
+        
         <th id="product_<%= @product.id %>">
           <span class="favorite-btn"><%= render "favorites/favorite-btn", product: @product %></soan>
         </th>
@@ -81,6 +86,20 @@
       <%= link_to "編集する",edit_product_path(@product.id),class: "btn btn-primary" ,data: {"turbolinks" => false}%>
       <%= link_to "削除する",product_path(@product.id) ,method: :delete, "data-confirm" => "本当に削除しますか？（この操作は取り消せません）", class:"btn btn-danger"%>
       <% end %>
+    </div>
+  </div>
+  
+  <div class="col-md-offset-2 col-md-8">
+    <p>このユーザの他の商品</p>
+      <div class="index-box">
+        <% @products.each do |product|%>
+          <div class = "index-inline-box">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

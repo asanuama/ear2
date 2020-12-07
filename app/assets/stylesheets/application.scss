@@ -39,6 +39,8 @@ main {
   width: 800px;
   height: 700px;
   margin-top: 70px;
+  background-image: image-url('model.jpg');
+  background-size: cover;
 }
 
 .consept-text{
@@ -86,8 +88,6 @@ main {
 }
 
 
-.search-form{
-}
 /* ---- ハンバーガーアイコン ---- */
 #hm-icon {
   position: fixed;
@@ -158,15 +158,9 @@ main {
 // -----------------------------
 
 .scroll{
-  width: 800px;
+  width: 1200px;
   margin-top: 50px;
 }
-
-.scroll-image{
-  height: 150px;
-  width: 200px;
-}
-
 
 .index-box{
   width: 100%;
@@ -174,7 +168,7 @@ main {
   flex-wrap: wrap;
 }
 .index-inline-box{
-  margin :20px;
+  margin: 20px;
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -183,4 +177,10 @@ main {
 table th {
   word-break : break-all;
 }
+.actions{
+  margin: 10px 0 10px 0;
+}
 
+.container{
+  margin-top: 50px;
+}
