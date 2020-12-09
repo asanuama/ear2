@@ -1,22 +1,23 @@
 <div class="top row">
   <div class='col-md-offset-2 col-md-8'>
     <div class = 'top-link-box'>
-      <div class = 'top-link-item'><%= link_to "all デザイナー", users_path%></div>
-      <div class = 'top-link-item'><%= link_to "all 商品", products_path %></div>
-      <div class = 'top-link-item'><%= link_to "all ピアス", products_path(is_pierce: true)%></div>
-      <div class = 'top-link-item'><%= link_to "all イヤリング", products_path(is_pierce: false)%></div>
-      <div class = 'top-link-item'><%= link_to "ノンアレルギー", products_path(is_allergiefree: true)%></div>
+      <div class = 'top-link-item'><%= link_to "designers", users_path%></div>
+      <div class = 'top-link-item'><%= link_to "all products", products_path %></div>
+      <div class = 'top-link-item'><%= link_to "all pierces", products_path(is_pierce: true)%></div>
+      <div class = 'top-link-item'><%= link_to "all earrings", products_path(is_pierce: false)%></div>
+      <div class = 'top-link-item'><%= link_to "allergy free", products_path(is_allergiefree: true)%></div>
+      <div class = 'top-link-item'><%= link_to "sold one", products_path(is_sold_one: true)%></div>
     </div>
    
     <div class="scroll">
       <% @products.each do |product|%>
         <%= link_to product_path(product.id) do %>
-          <%= attachment_image_tag product, :image, size: "300x300" %>
+          <%= attachment_image_tag product, :image, size: "300x300" ,:class => "scroll-item"%>
         <% end %>
       <% end %>
     </div>
     <div class = 'tag-links'>
-      <% Product.exposed.all_tags.pluck(:name).each do |tag|%>
+      <% Product.exposed.all_tags.order("RANDOM()").limit(20).pluck(:name).each do |tag|%>
         <%= link_to tag, products_path(tag_name: tag)%>
       <%end%>
     </div>

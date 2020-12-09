@@ -28,7 +28,9 @@
       </div>
     </div>
     <div class="col-md-4 col-md-offset-1">
-      <%= attachment_image_tag current_user, :image, fallback: "no_image.jpg",:size =>'400x400'%>
+      <div class = "my-image">
+        <%= attachment_image_tag current_user, :image, fallback: "no_image.jpg",:size =>'400x400'%>
+      </div>
     </div>
     <div class="col-md-4 col-md-offset-1">
       <table class = "table">

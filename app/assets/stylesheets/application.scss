@@ -36,12 +36,13 @@ main {
 
 }
 .consept{
-  width: 800px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   margin-top: 70px;
   background-image: image-url('model.jpg');
   background-size: cover;
   border-radius: 50%;
+  border: 1px solid #ffffff;
 }
 
 .consept-text{
@@ -57,21 +58,23 @@ main {
 }
 
 .top-link-box{
-  width: 100%;
+  width: 900px;
   display: flex;
-  margin: 50px auto 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 .top-link-item{
   width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  height: 60px;
   background-color: #ffffff;
-  margin: 15px 15px;
   border: 1px solid;
-  line-height: 150px;
+  line-height: 60px;
   text-align: center;
   font-size: 20px;
+}
+
+.scroll-item{
+  border: 1px solid;
 }
 
 /* ヘッダー */
@@ -85,9 +88,9 @@ main {
 .logo {
   width: 200px;
   color: black;
-  font-size: 60px;
+  font-size: 65px;
   font-weight: 700; 
-  margin: 0 20px 0 20px;
+  margin: 0 auto;
   .logolink {
     text-decoration: none;
     color: black;
@@ -101,6 +104,17 @@ main {
   display: flex;
 }
 
+.header-link-item-list{
+  padding: 0 10px 0 10px;
+  font-size: 15px;
+  line-height: 70px; 
+  font-style: none;
+}
+
+.search-form{
+  width: 300px;
+  margin: 20px auto 0 auto;
+}
 
 /* ---- ハンバーガーアイコン ---- */
 #hm-icon {

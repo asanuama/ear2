@@ -19,14 +19,22 @@ class ProductsController < ApplicationController
   def index
     if params[:tag_name]
       @products = Product.exposed.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
+      
     elsif params[:is_pierce] == "true"
       @products = Product.exposed.pierce.page(params[:page]).per(15)
+      @word = 'ピアス'
     elsif params[:is_pierce] == "false"
       @products = Product.exposed.nonhole_pierce.page(params[:page]).per(15)
+      @word = 'イヤリング'
     elsif params[:is_allergiefree] == "true"
       @products = Product.exposed.allergiefree.page(params[:page]).per(15)
+      @word = 'アレルギーフリー商品'
+    elsif params[:is_sold_one] == "true"
+      @products = Product.exposed.sold_one.page(params[:page]).per(15)
+      @word = '片方のみ販売可能商品'
     else
       @products = Product.exposed.page(params[:page]).per(15)
+      @word = '全商品'
     end
   end
 
