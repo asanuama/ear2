@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @products = @user.products.all
+    if @user == current_user
+      @products = @user.products
+    else
+      @products = @user.products.exposed
+    end
   end
 
   def edit

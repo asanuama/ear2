@@ -5,7 +5,7 @@
       <h1><%= current_user.name%>様のお気に入り商品一覧</h1>
     </div>
       <div class="index-box">
-      <% current_user.favorites.each do |favorite|%>
+      <% @favorites.each do |favorite|%>
       <div class = "index-inline-box">
         <%= link_to product_path(favorite.product.id) do %>
           <%= attachment_image_tag favorite.product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>

@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
   def index
     if params[:tag_name]
       @products = Product.exposed.tagged_with("#{params[:tag_name]}").page(params[:page]).per(15)
-      
     elsif params[:is_pierce] == "true"
       @products = Product.exposed.pierce.page(params[:page]).per(15)
       @word = 'ピアス'
