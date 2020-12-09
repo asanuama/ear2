@@ -1,7 +1,6 @@
 <div class="top row">
   <div class='col-md-offset-2 col-md-8'>
     <div class = 'top-link-box'>
-      <div class = 'top-link-item'><%= link_to "ear！ について", about_path%></div>
       <div class = 'top-link-item'><%= link_to "all デザイナー", users_path%></div>
       <div class = 'top-link-item'><%= link_to "all 商品", products_path %></div>
       <div class = 'top-link-item'><%= link_to "all ピアス", products_path(is_pierce: true)%></div>
@@ -21,8 +20,22 @@
         <%= link_to tag, products_path(tag_name: tag)%>
       <%end%>
     </div>
-    
-
+  <div class='col-md-offset-2 col-md-8'>
+    <div class = "consept">
+      <div class = "consept-text">
+      <h1>CONSEPT</h1>
+        投稿型のイヤリング、ピアス検索サイトです。
+        「大規模ショップやブランドでは買えないような商品を探したい」<br>
+        「アレルギーの有無などをもとに、ニーズにあった商品を探したい」<br>
+        という方。<br>
+        「多くの方に作品を知って欲しい」,
+        「もっとたくさんの人にインスタグラムやHPに来てもらいたい」,
+        「他のフリーデザイナーの作品を新しく見つけてみたい」という思いをもつデザイナーさん。<br>
+        一つのサイト内で手軽に比較検討し、本当に自分にあった商品、デザイナーさんとの
+        よい出会いの場になればという思いから生まれました。</br>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
