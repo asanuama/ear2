@@ -1,6 +1,8 @@
 <div class='row'>
   <div class='col-md-6 col-md-offset-3'>
-    <h1>商品新規登録</h1>
+    <div class="page-header">
+      <h1>商品新規登録</h1>
+    </div>
     <%= form_with model:@product,local:true do |f| %>
     <%= render "layouts/error_message", model: f.object %>
       <div class="field">

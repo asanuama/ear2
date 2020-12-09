@@ -1,13 +1,15 @@
 <div class="container">
 <div class="row">
 <div class="col-md-offset-2 col-md-8" >
-  <h1 class="under-border">
-  <% if params[:user_id] %>
-    <%= @user.name %>ページ
-  <% else %>
-    デザイナー一覧
-  <% end %>
-  </h1>
+  <div class="page-header">
+    <h1>
+    <% if params[:user_id] %>
+      <%= @user.name %>ページ
+    <% else %>
+      デザイナー一覧
+    <% end %>
+    </h1>
+  </div>
       <div class="index-box">
         <% @users.each do |user| %>
         <div class = "index-inline-box">

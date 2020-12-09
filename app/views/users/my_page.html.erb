@@ -1,8 +1,10 @@
-<%= flash[:notice] %>
 <div class="container">
   <div class="row">
     <div class='col-md-6 col-md-offset-3'>
-      <h1>マイページ</h1>
+      <%= flash[:notice] %>
+      <div class="page-header">
+        <h1>マイページ</h1>
+      </div>
         <%if current_user.is_designer? == false%>
          <%="現在 #{current_user.name} 様は viewerモードです"%>
         <% else %>

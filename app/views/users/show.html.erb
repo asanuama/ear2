@@ -40,7 +40,9 @@
     </div>
     
     <div class="col-md-offset-2 col-md-8">
-      <h1 class="under-border">このユーザの商品一覧</h1>
+      <div class="page-header">
+        <h3>このユーザの商品一覧</h3>
+      </div>
       <%if @products.empty? %>
         <p>ear!に登録済の商品はありません</p>
       <% else %>

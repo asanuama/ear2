@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   get 'search/search'
   root 'homes#top'
-  get 'homes/about' => 'homes#about' , as: 'about'
   devise_for :users
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
@@ -16,4 +18,7 @@ Rails.application.routes.draw do
   patch 'users/mode_change/:id' => 'users#mode_change', as: 'user_mode_change'
   patch 'product/hideen_change/:id' => 'products#hideen_change', as: 'product_hidden_change'
   get 'search' => 'search#search'
+  get   'inquiry' => 'inquiry#index'
+  post  'inquiry/confirm' => 'inquiry#confirm'
+  post  'inquiry/thanks'  => 'inquiry#thanks'
 end
