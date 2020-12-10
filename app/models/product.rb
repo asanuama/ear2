@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 	has_many :favorites, dependent: :destroy
 	
 	
-  validates :name, presence: true,length: { in: 2..20 } 
+  validates :name, presence: true,length: { in: 1..20 } 
   validates :explanation, presence: true ,length: { in: 2..300 } 
   validates :price, presence: true ,length: { in: 1..6 } ,numericality: true
   validates :image, presence: true

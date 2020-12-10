@@ -12,7 +12,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true, length: { in: 2..20 } 
   validates :introduction, length: { maximum: 300 }
-
+  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

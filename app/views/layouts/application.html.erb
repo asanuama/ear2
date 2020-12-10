@@ -50,7 +50,6 @@
               <% end %>
             </div>
           </div>
-          
           <div class="search-form">
             <%= form_tag(search_path, method: :get) do %>
               <%= text_field_tag 'search[content]' %>
@@ -59,14 +58,14 @@
             <% end %>
           </div>
         </div>
-        
         <div id="sp-menu">
           <ul>
             <li><%= link_to "デザイナー一覧", users_path%></li>
             <li><%= link_to "商品一覧", products_path %></li>
             <li><%= link_to "ピアス一覧", products_path(is_pierce: true)%></li>
             <li><%= link_to "イヤリング一覧", products_path(is_pierce: false)%></li>
-            <li><%= link_to "ノンアレルギー商品一覧", products_path(is_allergiefree: true)%></li>
+            <li><%= link_to "ノンアレルギー商品", products_path(is_allergiefree: true)%></li>
+            <li><%= link_to "片方のみ販売可能商品", products_path(is_sold_one: true)%></li>
           </ul>
         </div>
         <div id="hm-icon">
