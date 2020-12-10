@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     user = @product.user
-    @products = user.products.where.not(id:@product.id).order("RANDOM()").limit(3)
+    @products = user.products.exposed.where.not(id:@product.id).order("RANDOM()").limit(3)
   end
 
   def edit
