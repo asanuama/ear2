@@ -8,7 +8,6 @@
       <div class = 'top-link-item'><%= link_to "allergy free", products_path(is_allergiefree: true)%></div>
       <div class = 'top-link-item'><%= link_to "sold one", products_path(is_sold_one: true)%></div>
     </div>
-   
     <div class="scroll">
       <% @products.each do |product|%>
         <%= link_to product_path(product.id) do %>

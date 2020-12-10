@@ -4,12 +4,10 @@ class Product < ApplicationRecord
   belongs_to :user
 	has_many :favorites, dependent: :destroy
 	
-	
   validates :name, presence: true,length: { in: 1..20 } 
   validates :explanation, presence: true ,length: { in: 2..300 } 
   validates :price, presence: true ,length: { in: 1..6 } ,numericality: true
   validates :image, presence: true
-  
   
   scope :pierce,-> { where(is_pierce: "true") }
   scope :nonhole_pierce,-> { where(is_pierce: "false") }
