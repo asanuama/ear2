@@ -8,18 +8,24 @@
       <div class = 'top-link-item'><%= link_to "allergy free", products_path(is_allergiefree: true)%></div>
       <div class = 'top-link-item'><%= link_to "sold one", products_path(is_sold_one: true)%></div>
     </div>
+    
     <div class="scroll">
       <% @products.each do |product|%>
         <%= link_to product_path(product.id) do %>
-          <%= attachment_image_tag product, :image, size: "300x300" ,:class => "scroll-item"%>
+          <%= attachment_image_tag product, :image, size: "250x250" ,:class => "scroll-item"%>
         <% end %>
       <% end %>
     </div>
-    <div class = 'tag-links'>
-      <% Product.exposed.all_tags.order("RANDOM()").limit(20).pluck(:name).each do |tag|%>
-        <%= link_to tag, products_path(tag_name: tag)%>
-      <%end%>
+    
+    <div class = 'tag-link'>
+      <h3 class = "hashtag">#hash tag#</h3>
+      <div class = 'tag-link-items'>
+        <% Product.exposed.all_tags.order("RANDOM()").limit(20).pluck(:name).each do |tag|%>
+          <%= link_to tag, products_path(tag_name: tag)%>
+        <%end%>
+      </div>
     </div>
+  </div>
   <div class='col-md-offset-1 col-md-10'>
     <div class = "consept">
       <div class = "consept-text">
