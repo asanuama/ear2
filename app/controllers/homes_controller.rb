@@ -6,5 +6,6 @@ class HomesController < ApplicationController
       random = "rand()"
     end
     @products = Product.exposed.order(random)
+    @tags = Product.exposed.all_tags.order(random).limit(20).pluck(:name)
   end
 end

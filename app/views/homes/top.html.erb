@@ -20,7 +20,7 @@
     <div class = 'tag-link'>
       <h3 class = "hashtag">#hash tag#</h3>
       <div class = 'tag-link-items'>
-        <% Product.exposed.all_tags.order("RANDOM()").limit(20).pluck(:name).each do |tag|%>
+        <% @tags.each do |tag|%>
           <%= link_to tag, products_path(tag_name: tag)%>
         <%end%>
       </div>
