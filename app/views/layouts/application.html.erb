@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ear!</title>
+    <title>ear!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/120d3f8e53.js" crossorigin="anonymous"></script>
@@ -38,11 +38,6 @@
                   <i class="fas fa-user-plus"></i> SIGN IN
                 <% end %>
               </div>
-              <div class = "header-link-item-list">
-                <%= link_to users_guest_sign_in_path, method: :post, :class => "header-link-icon" do %>
-                  <i class="fas fa-door-open"></i>ゲストログイン（閲覧用）
-                <% end %>
-              </div>
             <% end %>
             <div class = "header-link-item-list">
               <%= link_to inquiry_path, :class => "header-link-icon" do%>
@@ -58,6 +53,7 @@
             <% end %>
           </div>
         </div>
+        
         <div id="sp-menu">
           <ul>
             <li><%= link_to "デザイナー一覧", users_path%></li>

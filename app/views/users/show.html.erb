@@ -52,14 +52,14 @@
               <%= link_to product_path(product.id) do %>
                 <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
                 <%= product.name %><br>
-                <%= product.price %>円
+                <%= product.price %>円<br>
+                <%=render 'layouts/tag_list', tag_list: product.tag_list%>
               <% end %>
             </div>
           <%end%>
         </div>
       <% end %>
     </div>
-    
   </div>
 </div>
 

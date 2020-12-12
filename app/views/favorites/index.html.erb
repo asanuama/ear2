@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
-    <div class="page-header">
-      <h1><%= current_user.name%>様のお気に入り商品一覧</h1>
-    </div>
+      <div class="page-header">
+        <h1><%= current_user.name%>様のお気に入り商品一覧</h1>
+      </div>
       <%if  @favorites.empty?%>
         <p>登録中のお気に入り商品は存在しないか、非表示モードとなっています</p>
       <% else %>
