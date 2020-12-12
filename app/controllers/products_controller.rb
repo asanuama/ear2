@@ -40,7 +40,12 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     user = @product.user
-    @products = user.products.exposed.where.not(id:@product.id).order("RANDOM()").limit(3)
+    random = "RANDOM()"
+    if Rails.env.production?
+      random = "rand()"
+    end
+    @products = user.products.exposed.where.not(id:@product.id).order(random).limit(3)
+    # @products = user.products.exposed.where.not(id:@product.id).order("RANDOM()").limit(3)
   end
 
   def edit
