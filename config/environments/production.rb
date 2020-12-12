@@ -101,6 +101,6 @@ Rails.application.configure do
   user_name:            ENV['SEND_MAIL'],
   password:             ENV['SEND_MAIL_PASSWORD'],
   authentication:       'plain',
-  enable_starttls_auto:  trues
+  enable_starttls_auto:  true
 }
 end
