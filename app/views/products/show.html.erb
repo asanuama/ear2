@@ -11,7 +11,7 @@
     <div class="col-md-4 col-md-offset-1">
       <table class="table">
         <tr>
-          <th><%= @product.name %></th>
+          <th class = "show-name"><%= @product.name %></th>
         </tr>
         <tr>
           <% if @product.user.is_designer?%>
@@ -98,7 +98,10 @@
           <% @products.each do |product|%>
             <div class = "index-inline-box">
               <%= link_to product_path(product.id) do %>
-                <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %>
+                <%= attachment_image_tag product, :image, :limit, 100,100, format: 'jpeg', fallback: 'no_image.jpg',size: "200x200" %><br>
+                <%= product.name %><br>
+                <%= product.price %>円<br>
+                <%=render 'layouts/tag_list', tag_list: product.tag_list%>
               <% end %>
             </div>
           <% end %>

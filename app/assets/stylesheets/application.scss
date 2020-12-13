@@ -145,7 +145,7 @@ main {
 
 .index-box{
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -165,5 +165,9 @@ table th {
 
 .container{
   margin-top: 50px;
+}
+
+.show-name{
+  font-size: 30px;
 }
 
