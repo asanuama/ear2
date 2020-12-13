@@ -4,6 +4,9 @@ if ActiveRecord.gem_version >= Gem::Version.new('5.0')
 else
   class AddMissingTaggableIndex < ActiveRecord::Migration; end
 end
+
+# デプロイの際にエラーが出る事象が発生したため、下記サイトを参考に下記メソッドをコメントアウト
+# https://qiita.com/matsubishi5/items/726b2f2f1b6655516b9d
 AddMissingTaggableIndex.class_eval do
   def self.up
    # add_index ActsAsTaggableOn.taggings_table, [:taggable_id, :taggable_type, :context], name: 'taggings_taggable_context_idx'

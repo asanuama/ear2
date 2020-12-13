@@ -8,9 +8,9 @@ class SearchController < ApplicationController
   private
   def partical(model, content)
     if model == 'user'
-      User.designer.where("name LIKE ?", "%#{content}%")
+      User.designer.where("name LIKE ?", "%#{content}%").page(params[:page]).per(15)
     elsif model == 'product'
-      Product.exposed.where("name LIKE ?", "%#{content}%")
+      Product.exposed.where("name LIKE ?", "%#{content}%").page(params[:page]).per(15)
     end
   end
 

@@ -33,68 +33,6 @@ main {
   width: 100%;
   padding: 20px 20px;
   color: #b8860b;
-
-}
-
-.top-link-box{
-  width: 900px;
-  display: flex;
-  margin: 20px auto 0 auto;
-}
-
-.top-link-item{
-  width: 150px;
-  height: 60px;
-  background-color: #ffffff;
-  border: 1px solid;
-  line-height: 60px;
-  text-align: center;
-  font-size: 20px;
-}
-
-.scroll{
-  width: 1000px;
-  margin: 50px auto 0 auto;
-}
-
-.scroll-item{
-  border: 1px solid;
-}
-
-.hashtag{
-  width: 200px;
-  text-align: left;
-  padding: 0 15px ;
-}
-
-.tag-link{
-  background-color: #ffffff;
-  width: 900px;
-  margin: 70px auto 0 auto;
-  text-align: center;
-  border: 1px solid;
-}
-
-.tag-link-items{
-  padding: 0 15px 15px 15px;
-  font-size: 20px;
-}
-
-.consept{
-  width: 900px;
-  height: 800px;
-  margin: 70px auto;
-  background-image: image-url('model.jpg');
-  background-size: cover;
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-}
-
-.consept-text{
-  margin: 120px auto;
-  color: #304C31;
-  text-shadow:2px 2px 3px #ffffff;
-  font-size: 25px;
 }
 
 /* ヘッダー */
@@ -207,11 +145,12 @@ main {
 
 .index-box{
   width: 100%;
+  margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
 }
 .index-inline-box{
-  margin: 40px 20px;
+  margin: 50px 20px;
   display: inline-block;
   width: 200px;
   height: 200px;
@@ -227,3 +166,4 @@ table th {
 .container{
   margin-top: 50px;
 }
+

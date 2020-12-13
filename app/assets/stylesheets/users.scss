@@ -51,13 +51,24 @@
 }
 
 .mode p{
-  font-size: 20px;
+  font-size: 18px;
+  padding-bottom: 10px;
 }
 
 .mode-text{
   margin: 10px auto 20px auto;
-  border: solid 0.5px;
+  border: solid 2px;
   padding: 30px;
   border-radius: 10%;
 }
+
+.mode-text span{
+  color: #FF3333;
+}
+
+.mode-explanation p{
+  padding: 0;
+}
+
+
 
