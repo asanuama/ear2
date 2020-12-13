@@ -14,6 +14,11 @@
           <th class = "show-name"><%= @user.name %></th>
         </tr>
         <tr>
+          <%if @user.nickname.present?%>
+            <th>活動名 / ブランド名:<%= @user.nickname %></th>
+          <% end %>
+        </tr>
+        <tr>
           <%if @user.introduction.present?%>
             <th><%= @user.introduction %></th>
           <% else %>
@@ -22,12 +27,12 @@
         </tr>
         <%if @user.homepage.present?%>
           <tr>
-            <th>HP : <%= link_to"#{@user.homepage}" %></th>
+            <th>HP : <%= link_to"#{@user.homepage}", "#{@user.homepage}"%></th>
           <tr>
           <% end %>
           <% if @user.instagram.present? %>
           <tr>
-            <th>instagram  <i class="fab fa-instagram"></i> : <%= link_to"#{@user.instagram}" %></th>
+            <th>instagram  <i class="fab fa-instagram"></i> : <%= link_to "#{@user.instagram}","#{@user.instagram}"%></th>
           </tr>
           <% end %>
           <%if !(@user.homepage.present? || @user.instagram.present?)%>

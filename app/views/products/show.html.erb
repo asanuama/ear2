@@ -21,6 +21,11 @@
           <% end %>
         </tr>
         <tr>
+          <%if @product.user.nickname.present?%>
+            <th>活動名 / ブランド名 :<%= @product.user.nickname %></th>
+          <% end %>
+        </tr>
+        <tr>
           <th><%= @product.explanation%></th>
         </tr>
         <tr>
@@ -51,12 +56,12 @@
         <% end %>
         <% if @product.user.homepage.present?%>
           <tr>
-            <th>HP : <%=link_to "#{@product.user.homepage}"%></th>
+            <th>HP : <%=link_to "#{@product.user.homepage}", "#{@product.user.homepage}"%></th>
           </tr>
         <% end %>
         <% if @product.user.instagram.present?%>
           <tr>
-            <th>instagram <i class="fab fa-instagram"></i> : <%=link_to "#{@product.user.instagram}"%></th>
+            <th>instagram <i class="fab fa-instagram"></i> : <%=link_to "#{@product.user.instagram}", "#{@product.user.instagram}"%></th>
           </tr>
         <% end %>
         <%if @product.user == current_user%>
@@ -70,7 +75,7 @@
           </th>
         </tr>
         <%end%>
-        
+    
         <%if !@product.tag_list.empty? %>
           <tr>
             <th>タグ : <%=render 'layouts/tag_list', tag_list: @product.tag_list%></th>

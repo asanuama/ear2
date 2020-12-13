@@ -29,13 +29,14 @@
         <%= f.label :インスタグラム%>
         <%= f.text_field :instagram, class: 'col-xs-12'%>
       </div>
-      
+      <p> ※ URLは商品、及びプロフィール画面にリンクとして表示されます。
+      お間違いの無いようご注意ください</p>
       <div class="actions row">
         <%= f.submit '編集内容を保存する' ,class:"btn btn-primary col-xs-12"%>
       </div>
     <% end %>
     <div class = "actions row">
-      <p>※ユーザモードの切り替えについては、以下⇩のリンクから行ってください</p>
+      <p>※ユーザモードの切り替えにつきましては以下⇩のリンクからお願いします</p>
       <%= link_to 'ユーザモード切り替えページへ', user_mode_select_path,class:"btn btn-primary col-xs-12"%>
     </div>
   </div>
