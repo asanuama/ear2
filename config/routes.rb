@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
   resources :products do
    resource :favorites, only: [:create, :destroy]
+   resources :product_comments, only: [:create, :destroy]
   end
   get 'favorite/index' => 'favorites#index', as: 'favorite_index'
   get 'user/my_page' => 'users#my_page' , as: 'user_my_page'

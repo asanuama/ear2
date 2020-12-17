@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   acts_as_taggable
   belongs_to :user
 	has_many :favorites, dependent: :destroy
+	has_many :product_comments, dependent: :destroy
 	
   validates :name, presence: true,length: { in: 1..20 } 
   validates :explanation, presence: true ,length: { in: 2..300 } 
