@@ -3,7 +3,7 @@ class ProductCommentsController < ApplicationController
   
   def create
     @product = Product.find(params[:id])
-    @product_comment = Product_comment.new(product_comment_params)
+    @product_comment = Productcomment.new(product_comment_params)
     @product_comment.product_id = @product.id
     @product_comment.user_id = current_user.id
     if !@product_comment.save
@@ -12,6 +12,10 @@ class ProductCommentsController < ApplicationController
   end
   
   def destoroy
+    @product = Product.find(params[:id])
+    product_comment = @product.product_comment.find(params[:id])
+    product_comment.destoroy
+    redirect_to request.referer
   end
   
   private
