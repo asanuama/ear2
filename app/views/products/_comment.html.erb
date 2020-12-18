@@ -1,0 +1,17 @@
+<table>
+  <% product.product_comments.each do |product_comment| %>
+    <% product_comment_user = product_comment.user %>
+    <tr>
+      <td>
+    		<%= link_to user_path(product_comment_user), class: "user_#{product_comment_user.id}" do %>
+          <%= attachment_image_tag product_comment_user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
+          <%= product_comment_user.name %>
+        <% end %>
+      </td>
+      <td><%= product_comment.comment %></td>
+      <% if current_user == product_comment_user %>
+        <td><%= link_to 'Destroy', product_product_comment_path(product_comment.product_id, product_comment.id), class: 'btn-sm btn-danger', method: :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

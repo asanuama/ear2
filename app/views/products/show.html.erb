@@ -94,6 +94,20 @@
     </div>
   </div>
   
+  <div>
+    <h2>投稿する</h2>
+    <%= form_with model:[@product,@product_comment],local:true do |f| %>
+      <div class="field row">
+        <%= f.label :コメント %>
+        <%= f.text_area :comment, class: "form-control"%>
+      </div>
+      <div class="actions row">
+        <%= f.submit 'コメントを登録する', class: 'btn btn-primary col-xs-12'%>
+      </div>
+    <% end %>
+  </div>  
+  <%= render 'products/comment' , product: @product%>
+  
     <% if @product.user.products.exposed.count >= 2 %>
       <div class="col-md-offset-2 col-md-8">
         <div class="page-header">

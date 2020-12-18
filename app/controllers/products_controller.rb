@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
     end
     @products = user.products.exposed.where.not(id:@product.id).order(random).limit(3)
     # @products = user.products.exposed.where.not(id:@product.id).order("RANDOM()").limit(3)
+    @product_comment = ProductComment.new
   end
 
   def edit
